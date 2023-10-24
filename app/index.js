@@ -1,11 +1,29 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Link } from 'expo-router';
+import { View, StyleSheet, Text, Pressable, Image, ScrollView } from 'react-native'
 
 export default function Page() {
   return (
     <View style={styles.container}>
-      <View style={styles.main}>
-        <Text style={styles.title}>Hello World</Text>
-        <Text style={styles.subtitle}>This is the first page of your app.</Text>
+      <View style={styles.Section1}>
+        <ScrollView>
+
+          <Image style={styles.Image}
+            source={require('../assets/food1.png')}
+          />
+          <Text style={styles.Section}>Food for everyone </Text>
+
+          <Image style={styles.Img}
+            source={require('../assets/Group.png')}
+
+          />
+
+          <Link href={'/home'} style={styles.Btn} asChild>
+            <Pressable>
+              <Text style={styles.texte}>Get started</Text>
+            </Pressable>
+          </Link>
+        </ScrollView>
+
       </View>
     </View>
   );
@@ -14,21 +32,53 @@ export default function Page() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    padding: 24,
   },
-  main: {
+  Section1: {
     flex: 1,
-    justifyContent: "center",
-    maxWidth: 960,
-    marginHorizontal: "auto",
+    backgroundColor: '#FF4B3A',
+
   },
-  title: {
-    fontSize: 64,
-    fontWeight: "bold",
+
+  Section: {
+    color: '#fff',
+    fontSize: 50,
+    marginLeft: 20,
+    marginTop: 50,
+    fontWeight: 'bold',
+    justifyContent: 'center',
+
+
+
   },
-  subtitle: {
-    fontSize: 36,
-    color: "#38434D",
+  Image: {
+    borderRadius: 100,
+    backgroundColor: '#fff',
+    marginLeft: 20,
+    marginTop: 50,
+
   },
+  Img: {
+    width: 350,
+    height: 400,
+    borderRadius: 100,
+
+  },
+  Btn: {
+    backgroundColor: 'white',
+    borderRadius: 30,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 200,
+    height: 50,
+    marginLeft: 80,
+    marginTop: -30,
+  },
+  texte: {
+    color: '#FF460A',
+    fontWeight: '600',
+    fontSize: 17,
+    textAlign: 'center'
+  }
+
 });
