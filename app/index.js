@@ -17,7 +17,7 @@ export default function Page() {
 
           />
 
-          <Link href={'/home'} style={styles.Btn} asChild>
+          <Link href={'/Login/Login'} style={styles.Btn} asChild>
             <Pressable>
               <Text style={styles.texte}>Get started</Text>
             </Pressable>
