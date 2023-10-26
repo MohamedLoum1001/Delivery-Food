@@ -18,6 +18,7 @@ export default function SignIn() {
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       console.log('Création Utilisateur réussi !');
+      Alert.alert('Inscription réussie !')
       const user = userCredential.user;
       console.log(user);
     })
@@ -32,6 +33,10 @@ export default function SignIn() {
       style={styles.first}
     >
       <View style={styles.login}>
+        <View>
+          <Text style={styles.text}>Prenom et Nom</Text>
+          <TextInput style={styles.input} placeholder="Enter your full name" />
+        </View>
         <View>
           <Text style={styles.text}>Email address</Text>
           <TextInput onChangeText={(text) => setEmail(text)} style={styles.input} placeholder="Enter your email" />
@@ -57,9 +62,8 @@ const styles = StyleSheet.create({
   first: {
     flex: 1,
     padding: 10,
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-    paddingBottom: 80,
+    justifyContent: "center",
+    alignItems: "center",
   },
   text: {
     paddingTop: 20,
@@ -76,13 +80,11 @@ const styles = StyleSheet.create({
   second: {
     justifyContent: "center",
     alignItems: "center",
-    paddingBottom: 60,
   },
   login: {
     flex: 1,
     display: "flex",
     alignItems: "space-beetwen",
-    paddingTop: 10,
     width: 300,
     marginLeft: 25
   },
@@ -97,10 +99,10 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    width: 200,
-    height: 50,
-    marginLeft: 80,
-    marginTop: -70,
+    width: 250,
+    height: 60,
+    marginTop: 40,
+    marginBottom: 50,
   }
 
 });
