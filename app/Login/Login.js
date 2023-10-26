@@ -3,6 +3,9 @@ import { Image, Text, View, StyleSheet, ScrollView } from "react-native";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 
+
+
+
 export default function Login() {
 
   const [view, setView] = useState('login'); // État pour suivre la vue actuelle
@@ -95,7 +98,7 @@ const styles = StyleSheet.create({
 
   tabContainer: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "baseline",
     bottom: -21,
     paddingBottom: 20,
     width: 200,
@@ -107,9 +110,9 @@ const styles = StyleSheet.create({
     color: "black",
     fontSize: 16,
     fontWeight: "bold",
-    width: 100,
-
-    alignItems: "space-beetwen",
+    width: 120,
+    paddingBottom: 15,
+    alignItems: "center",
     marginLeft: 30,
 
   },

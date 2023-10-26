@@ -1,8 +1,31 @@
 import React from "react";
-import { Text,TextInput, View, StyleSheet, TouchableOpacity } from "react-native";
+import { Text,TextInput, View, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import Button from "../Utils/Button";
 
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
+import { firebaseConfig } from '../../firebase-config';
+
 export default function SignIn() {
+
+  const [email, setEmail] = React.useState('')
+  const [password, setPassword] = React.useState('')
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  const handleCreateAccount = () => {
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      console.log('Création Utilisateur réussi !');
+      const user = userCredential.user;
+      console.log(user);
+    })
+    .catch(error => {
+      console.log(error);
+      Alert.alert(error.message)
+    })
+  }
   
   return (
     <View
@@ -11,15 +34,12 @@ export default function SignIn() {
       <View style={styles.login}>
         <View>
           <Text style={styles.text}>Email address</Text>
-          <TextInput style={styles.input} placeholder="Enter your email" />
+          <TextInput onChangeText={(text) => setEmail(text)} style={styles.input} placeholder="Enter your email" />
         </View>
         <View>
           <Text style={styles.text}>Password</Text>
-          <TextInput style={styles.input} placeholder="*  *  *  *  *  *  * " />
+          <TextInput onChangeText={(text) => setPassword(text)} style={styles.input} placeholder="*  *  *  *  *  *  * " />
         </View>
-        <Text style={styles.text1}>
-          Forgot password ?
-        </Text>
       </View>
 
       <View
@@ -27,7 +47,7 @@ export default function SignIn() {
       >
         <Button title="Login" />
       </View>
-      <TouchableOpacity style={styles.Btn}>
+      <TouchableOpacity onPress={handleCreateAccount} style={styles.Btn}>
         <Text style={{ color: 'white', fontSize:  17, fontWeight: '600'}}>Signup</Text>
       </TouchableOpacity>
     </View>

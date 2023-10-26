@@ -3,15 +3,37 @@ import { Text, TextInput, View, StyleSheet, TouchableOpacity } from "react-nativ
 import Button from "../Utils/Button";
 import { useNavigation } from '@react-navigation/native';
 
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
+import { firebaseConfig } from '../../firebase-config';
+
 
 function SignIn() {
 
-  const navigation = useNavigation()
+  // const navigation = useNavigation()
 
-  const handleLogin = () => {
-    console.log('Navigating to Home');
-    navigation.navigate('Home');
-  };
+  const [email, setEmail] = React.useState('')
+  const [password, setPassword] = React.useState('')
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  const handleSingIn = () => {
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      console.log('Connecté !');
+      const user = userCredential.user;
+      console.log(user);
+    })
+    .catch(error => {
+      console.log(error);
+    })
+  }
+
+  // const handleLogin = () => {
+  //   console.log('Navigating to Home');
+  //   navigation.navigate('Home');
+  // };
 
   return (
     <View
@@ -20,24 +42,22 @@ function SignIn() {
       <View style={styles.login}>
         <View>
           <Text style={styles.text}>Email address</Text>
-          <TextInput style={styles.input} placeholder="Enter your email" />
+          <TextInput onChangeText={(text) => setEmail(text)} style={styles.input} placeholder="Enter your email" />
         </View>
         <View>
           <Text style={styles.text}>Password</Text>
-          <TextInput style={styles.input} placeholder="*  *  *  *  *  *  * " />
+          <TextInput onChangeText={(text) => setPassword(text)} style={styles.input} placeholder="*  *  *  *  *  *  * " />
         </View>
         <Text style={styles.text1}>
           Forgot password ?
         </Text>
       </View>
 
-      <View
-        style={styles.second}
-      >
-        <Button title="Login"
-          onPress={handleLogin} />
+      <View style={styles.second}>
+        {/* <Button title="Login"
+          onPress={handleLogin} /> */}
       </View>
-      <TouchableOpacity style={styles.Btn} onPress={handleLogin}>
+      <TouchableOpacity style={styles.Btn} onPress={handleSingIn}>
         <Text style={{ color: 'white', fontSize:  17, fontWeight: '600'}}>Login</Text>
       </TouchableOpacity>
     </View>
