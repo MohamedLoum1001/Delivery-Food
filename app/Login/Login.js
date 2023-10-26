@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
 
   tabContainer: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "baseline",
     bottom: -21,
     paddingBottom: 20,
     width: 200,
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     width: 100,
 
-    alignItems: "space-beetwen",
+    alignItems: "center",
     marginLeft: 30,
 
   },
