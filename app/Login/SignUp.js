@@ -1,9 +1,9 @@
 import React from "react";
-import { Text,TextInput, View, StyleSheet, TouchableOpacity } from "react-native";
-import Button from "../Utils/Button";
+import { Text, TextInput, View, StyleSheet, Pressable } from "react-native";
+import { Link } from "expo-router";
 
 export default function SignIn() {
-  
+
   return (
     <View
       style={styles.first}
@@ -22,14 +22,13 @@ export default function SignIn() {
         </Text>
       </View>
 
-      <View
-        style={styles.second}
-      >
-        <Button title="Login" />
+      <View style={styles.second}>
+        <Link href={'/Login/Login'} asChild>
+          <Pressable style={styles.Btn}>
+            <Text style={styles.textBtn}>Register</Text>
+          </Pressable>
+        </Link>
       </View>
-      <TouchableOpacity style={styles.Btn}>
-        <Text style={{ color: 'white', fontSize:  17, fontWeight: '600'}}>Signup</Text>
-      </TouchableOpacity>
     </View>
   );
 }
@@ -53,11 +52,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 17
   },
-  second: {
-    justifyContent: "center",
-    alignItems: "center",
-    paddingBottom: 60,
-  },
   login: {
     flex: 1,
     display: "flex",
@@ -72,6 +66,13 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: '600'
   },
+  second: {
+    display: 'flex',
+    justifyContent: "center",
+    alignItems: "center",
+    marginHorizontal: 70,
+    marginVertical: 25
+  },
   Btn: {
     backgroundColor: '#FA4A0C',
     borderRadius: 50,
@@ -79,8 +80,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 200,
     height: 50,
-    marginLeft: 80,
-    marginTop: -70,
-  }
 
+  },
+  textBtn: {
+    color: 'white',
+    fontSize: 17,
+    fontWeight: '600'
+  }
 });

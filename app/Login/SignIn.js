@@ -1,17 +1,19 @@
-import React, { useState } from "react";
-import { Text, TextInput, View, StyleSheet, TouchableOpacity } from "react-native";
-import Button from "../Utils/Button";
-import { useNavigation } from '@react-navigation/native';
+import React from "react";
+import { Text, TextInput, View, StyleSheet, Pressable } from "react-native";
+import { Link } from "expo-router";
+
+// import Button from "../Utils/Button";
+// import { useNavigation } from '@react-navigation/native';
 
 
 function SignIn() {
 
-  const navigation = useNavigation()
+  // const navigation = useNavigation()
 
-  const handleLogin = () => {
-    console.log('Navigating to Home');
-    navigation.navigate('Home');
-  };
+  // const handleLogin = () => {
+  //   console.log('Navigating to Home');
+  //   navigation.navigate('Home');
+  // };
 
   return (
     <View
@@ -31,15 +33,19 @@ function SignIn() {
         </Text>
       </View>
 
-      <View
+      {/* <View
         style={styles.second}
       >
         <Button title="Login"
           onPress={handleLogin} />
+      </View> */}
+      <View style={styles.second}>
+        <Link href={'/DrawerNavigation/Home'} asChild>
+          <Pressable style={styles.Btn}>
+            <Text style={styles.textBtn}>Login</Text>
+          </Pressable>
+        </Link>
       </View>
-      <TouchableOpacity style={styles.Btn} onPress={handleLogin}>
-        <Text style={{ color: 'white', fontSize:  17, fontWeight: '600'}}>Login</Text>
-      </TouchableOpacity>
     </View>
   );
 }
@@ -67,13 +73,15 @@ const styles = StyleSheet.create({
     fontSize: 17
   },
   second: {
+    display: 'flex',
     justifyContent: "center",
     alignItems: "center",
-    paddingBottom: 60,
+    marginHorizontal: 15,
+    marginVertical: 100
   },
   login: {
-    flex: 1,
-    display: "flex",
+    display: 'flex',
+   flexDirection: 'column',
     alignItems: "space-beetwen",
     paddingTop: 10,
     width: 300,
@@ -88,12 +96,18 @@ const styles = StyleSheet.create({
   Btn: {
     backgroundColor: '#FA4A0C',
     borderRadius: 50,
+    display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     width: 200,
     height: 50,
-    marginLeft: 80,
+    marginLeft: 50,
     marginTop: -70,
+  },
+  textBtn: {
+    color: 'white',
+    fontSize: 17,
+    fontWeight: '600'
   }
 
 });
