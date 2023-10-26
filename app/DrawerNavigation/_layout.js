@@ -1,7 +1,14 @@
+import { useNavigation } from 'expo-router';
 import { Drawer } from 'expo-router/drawer';
 import { Image } from 'react-native';
 
 export default function Layout() {
+    // const navigation = useNavigation();
+
+    // const handleLogout = () => {
+    //     console.log('Login Page');
+    //     navigation.navigate('Login');
+    // };
     return (
         <Drawer
             screenOptions={{
@@ -36,7 +43,7 @@ export default function Layout() {
                     title: "Orders",
                     drawerIcon: ({ size }) => (
                         <Image
-                            source={require('../../assets/Profile.png')}
+                            source={require('../../assets/panier.png')}
                             style={{ width: size, height: size, tintColor: 'white' }}
                         />
                     ),
