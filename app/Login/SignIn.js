@@ -75,7 +75,7 @@ function SignIn() {
         }
 
       });
-    // alert("l'e-mail de réinitialisation du mot de passe a été envoyé");
+    
     // Réinitialisez les champs du formulaire
     setEmail("")
   };
