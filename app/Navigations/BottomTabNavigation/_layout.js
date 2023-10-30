@@ -1,5 +1,12 @@
 import { Tabs } from 'expo-router/tabs';
+// Import des icônes
+const house = require('./assets/icons/home.png');
+const favorite = require('./assets/icons/heart.png');
+const users = require('./assets/icons/user.png');
+const historie = require('./assets/icons/history.png');
+
 export default function AppLayout() {
+
     return (
         <Tabs>
             <Tabs.Screen
@@ -7,7 +14,7 @@ export default function AppLayout() {
                 name="Home"
                 options={{
                     // This tab will no longer show up in the tab bar.
-                    href: '/Home',
+                    href: '/Navigations/BottomTabNavigation/Home',
                 }}
             />
             <Tabs.Screen
@@ -15,7 +22,7 @@ export default function AppLayout() {
                 name="Favorite"
                 options={{
                     // This tab will no longer show up in the tab bar.
-                    href: '/Favorite',
+                    href: '/Navigations/BottomTabNavigation/Favorite',
                 }}
             />
             <Tabs.Screen
@@ -23,7 +30,7 @@ export default function AppLayout() {
                 name="User"
                 options={{
                     // This tab will no longer show up in the tab bar.
-                    href: '/User',
+                    href: '/Navigations/BottomTabNavigation/User',
                 }}
             />
             <Tabs.Screen
@@ -31,7 +38,7 @@ export default function AppLayout() {
                 name="History"
                 options={{
                     // This tab will no longer show up in the tab bar.
-                    href: '/History',
+                    href: '/Navigations/BottomTabNavigation/History',
                 }}
             />
 

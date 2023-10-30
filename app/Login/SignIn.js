@@ -40,7 +40,7 @@ function SignIn() {
           onPress={handleLogin} />
       </View> */}
       <View style={styles.second}>
-        <Link href={'/DrawerNavigation/Home'} asChild>
+        <Link href={'/Navigations/BottomTabNavigation/Home'} asChild>
           <Pressable style={styles.Btn}>
             <Text style={styles.textBtn}>Login</Text>
           </Pressable>

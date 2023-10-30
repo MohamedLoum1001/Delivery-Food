@@ -1,14 +1,9 @@
-import { useNavigation } from 'expo-router';
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
 import { Drawer } from 'expo-router/drawer';
 import { Image } from 'react-native';
 
-export default function Layout() {
-    // const navigation = useNavigation();
-
-    // const handleLogout = () => {
-    //     console.log('Login Page');
-    //     navigation.navigate('Login');
-    // };
+const DrawerNavigation = () => {
     return (
         <Drawer
             screenOptions={{
@@ -91,3 +86,7 @@ export default function Layout() {
         </Drawer>
     );
 }
+
+export default DrawerNavigation
+
+const styles = StyleSheet.create({})
