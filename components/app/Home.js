@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Pressable } from 'react-native'
 import React from 'react'
 import { Link } from 'expo-router'
+import BottomTabNavigation from '../../../components/BottomTabComponent/BottomTabNavigation'
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
                     </Pressable>
                 </Link>
             </View>
+            <BottomTabNavigation/>
         </View>
     )
 }

@@ -1,7 +1,9 @@
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
 import { Drawer } from 'expo-router/drawer';
 import { Image } from 'react-native';
 
-export default function Layout() {
+const DrawerNavigation = () => {
     return (
         <Drawer
             screenOptions={{
@@ -36,7 +38,7 @@ export default function Layout() {
                     title: "Orders",
                     drawerIcon: ({ size }) => (
                         <Image
-                            source={require('../../assets/Profile.png')}
+                            source={require('../../assets/panier.png')}
                             style={{ width: size, height: size, tintColor: 'white' }}
                         />
                     ),
@@ -84,3 +86,7 @@ export default function Layout() {
         </Drawer>
     );
 }
+
+export default DrawerNavigation
+
+const styles = StyleSheet.create({})
