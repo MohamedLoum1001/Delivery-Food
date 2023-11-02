@@ -20,8 +20,56 @@ export default function Layout() {
                 drawerLabelStyle: {
                     color: 'white',
                 },
+                headerTitleAlign: 'center',
+                // headerTintColor: '#f5f5f8'
+                headerStyle:{
+                    backgroundColor: '#f2f2f2',
+                }
             }}
         >
+            <Drawer.Screen
+                name="Home"
+                options={{
+                    drawerLabel: "Home",
+                    title: "Home",
+                    drawerIcon: ({ size }) => (
+                        <Image
+                            source={require('../../../assets/icons/home.png')}
+                            style={{ width: size, height: size, tintColor: 'white' }}
+                        />
+                    ),
+                    // headerShown: false
+
+                }}
+            />
+            <Drawer.Screen
+                name="Favorite"
+                options={{
+                    drawerLabel: "Favorite",
+                    title: "Favorite",
+                    drawerIcon: ({ size }) => (
+                        <Image
+                            source={require('../../../assets/icons/heart.png')}
+                            style={{ width: size, height: size, tintColor: 'white' }}
+                        />
+                    ),
+
+                }}
+            />
+            <Drawer.Screen
+                name="History"
+                options={{
+                    drawerLabel: "History",
+                    title: "History",
+                    drawerIcon: ({ size }) => (
+                        <Image
+                            source={require('../../../assets/icons/history.png')}
+                            style={{ width: size, height: size, tintColor: 'white' }}
+                        />
+                    ),
+
+                }}
+            />
             <Drawer.Screen
                 name="Profile"
                 options={{
