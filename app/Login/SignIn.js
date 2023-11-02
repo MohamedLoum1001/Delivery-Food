@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import { Text, TextInput, View, StyleSheet, TouchableOpacity, Alert } from "react-native";
+import { Image,Text, TextInput, View, StyleSheet, TouchableOpacity, Alert, Pressable } from "react-native";
 import Button from "../Utils/Button";
 import { useNavigation } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from '../../firebase-config';
 
+// const navigation = useNavigation()
+function SignIn({navigation}) {
 
-function SignIn() {
-
-  const navigation = useNavigation()
+  // const navigation = useNavigation()
 
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
@@ -22,10 +24,9 @@ function SignIn() {
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       console.log('Connecté !');
-      Alert.alert('Connexion réussie !')
+      Alert.alert("Connexion reussi !");
+      navigation.navigate('Home');
       const user = userCredential.user;
-      console.log(user);
-      // navigation.navigate('Home');
     })
     .catch(error => {
       console.log(error);
@@ -52,7 +53,7 @@ function SignIn() {
   //       console.log({error});
   //     });
   //     // Alert.alert("jer")
-  // }
+  // } Link
 
   const forgotPassword = (e) => {
     e.preventDefault();
@@ -89,29 +90,42 @@ function SignIn() {
     <View
       style={styles.first}
     >
-      <View style={styles.login}>
-        <View>
-          <Text style={styles.text}>Email address</Text>
-          <TextInput onChangeText={(text) => setEmail(text)} style={styles.input} placeholder="Enter your email" />
+      <View style={styles.logo}>
+        <Image source={require("../../assets/logo.png")} style={styles.image} />
+        <View style={styles.tabContainer}>
+            <Text style={styles.activeTab}>
+              Login
+            </Text>
+            <Pressable onPress={() => navigation.navigate('Signup')} >
+              <Text style={styles.tab}>Sign-up</Text>
+            </Pressable>
         </View>
-        <View>
-          <Text style={styles.text}>Password</Text>
-          <TextInput onChangeText={(text) => setPassword(text)} style={styles.input} placeholder="*  *  *  *  *  *  * " />
+      </View>
+      <View>
+        <View style={styles.login}>
+          <View>
+            <Text style={styles.text}>Email address</Text>
+            <TextInput onChangeText={(text) => setEmail(text)} style={styles.input} placeholder="Enter your email" />
+          </View>
+          <View>
+            <Text style={styles.text}>Password</Text>
+            <TextInput onChangeText={(text) => setPassword(text)} style={styles.input} placeholder="*  *  *  *  *  *  * " />
+          </View>
+          <TouchableOpacity onPress={forgotPassword}>
+            <Text style={styles.text1}>
+              Forgot password ?
+            </Text>
+          </TouchableOpacity>
         </View>
-        <TouchableOpacity onPress={forgotPassword}>
-          <Text style={styles.text1}>
-            Forgot password ?
-          </Text>
+
+        {/* <View style={styles.second}>
+          <Button title="Login"
+            onPress={handleLogin} />
+        </View> */}
+        <TouchableOpacity style={styles.Btn} onPress={handleSingIn}>
+          <Text style={{ color: 'white', fontSize:  17, fontWeight: '600'}}>Login</Text>
         </TouchableOpacity>
       </View>
-
-      {/* <View style={styles.second}>
-        <Button title="Login"
-          onPress={handleLogin} />
-      </View> */}
-      <TouchableOpacity style={styles.Btn} onPress={handleSingIn}>
-        <Text style={{ color: 'white', fontSize:  17, fontWeight: '600'}}>Login</Text>
-      </TouchableOpacity>
     </View>
   );
 }
@@ -125,6 +139,23 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingBottom: 80,
+  },
+  logo: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    width: "104%",
+    paddingTop: 70,
+    margin: 0,
+    borderRadius: 35,
+  },
+  image: {
+    width: 150,
+    height: 162.38,
+    marginBottom: 80,
+    top: 50,
+    // left: 136
   },
   text: {
     paddingTop: 20,
@@ -140,17 +171,18 @@ const styles = StyleSheet.create({
     marginBottom: 50,
   },
   second: {
+    display: 'flex',
     justifyContent: "center",
     alignItems: "center",
-    paddingBottom: 60,
+    marginHorizontal: 15,
+    marginVertical: 100
   },
   login: {
-    flex: 1,
-    display: "flex",
+    display: 'flex',
+   flexDirection: 'column',
     alignItems: "space-beetwen",
     paddingTop: 10,
     width: 300,
-    marginLeft: 25
   },
   input: {
     borderBottomWidth: 1,
@@ -161,11 +193,41 @@ const styles = StyleSheet.create({
   Btn: {
     backgroundColor: '#FA4A0C',
     borderRadius: 50,
+    display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     width: 250,
     height: 60,
     marginTop: 70,
-  }
+    marginLeft: 15,
+  },
+  tabContainer: {
+    flexDirection: "row",
+    justifyContent: "baseline",
+    bottom: -21,
+    paddingBottom: 20,
+    width: 200,
+    alignItems: "center",
+  },
+  tab: {
+    paddingEnd: 40,
+    color: "black",
+    fontSize: 16,
+    fontWeight: "500",
+    width: 120,
+    paddingBottom: 15,
+    alignItems: "center",
+    marginLeft: 30,
+    paddingBottom: 10,
+  },
+  activeTab: {
+    marginEnd: 20,
+    paddingEnd: 10,
+    fontSize: 18,
+    fontWeight: "500",
+    borderBottomWidth: 2,
+    borderColor: "#FA4A0C",
+    paddingBottom: 8,
+  },
 
 });

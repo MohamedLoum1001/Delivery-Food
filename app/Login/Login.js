@@ -4,8 +4,6 @@ import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 
 
-
-
 export default function Login() {
 
   const [view, setView] = useState('login'); // État pour suivre la vue actuelle
@@ -26,7 +24,6 @@ export default function Login() {
             </Text>
             <Text
               style={view === "signup" ? styles.activeTab : styles.tab}
-
               onPress={() => setView("signup")} // Définissez la vue sur "signup" lors du clic
             >
               Sign-up
