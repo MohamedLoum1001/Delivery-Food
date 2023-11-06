@@ -3,6 +3,58 @@ import React from 'react'
 import Menu from '../../../components/Menu/Menu'
 
 const Home = () => {
+    // const products = [
+    //     {
+    //         id: 1,
+    //         image: require('../../../assets/images/thiebbouwex.jpeg'),
+    //         title: 'Thiébou Dieun Bou Wékh',
+    //         price: 700
+    //     },
+    //     {
+    //         id: 2,
+    //         image: require('../../../assets/images/thieboudiene.jpg'),
+    //         title: 'Thiébou Dieun Bou Khonk',
+    //         price: 700
+    //     },
+
+    //     {
+    //         id: 3,
+    //         image: require('../../../assets/images/mafe.jpg'),
+    //         title: 'Mafé',
+    //         price: 700
+    //     },
+    //     {
+    //         id: 4,
+    //         image: require('../../../assets/images/yassa.jpg'),
+    //         title: 'Yassa Poulet',
+    //         price: 1000
+    //     },
+    //     {
+    //         id: 5,
+    //         image: require('../../../assets/images/niébé.jpeg'),
+    //         title: 'Thiébou Bou Niébé',
+    //         price: 700
+    //     },
+    //     {
+    //         id: 6,
+    //         image: require('../../../assets/images/thiebguinar.jpeg'),
+    //         title: 'Thiébou Guinar',
+    //         price: 700
+    //     },
+    //     {
+    //         id: 7,
+    //         image: require('../../../assets/images/bissap.jpeg'),
+    //         title: 'Jus Bissap',
+    //         price: 200
+    //     },
+    //     {
+    //         id: 8,
+    //         image: require('../../../assets/images/bouye.png'),
+    //         title: 'Jus Bouille',
+    //         price: 200
+    //     },
+        // Ajoutez d'autres produits ici...
+    // ];
     return (
 
         <View style={styles.container}>
@@ -19,6 +71,7 @@ const Home = () => {
                 <View style={styles.form}>
                     <View style={styles.titre}>
                         <Text style={styles.textetitre}>Delicious</Text>
+
                         <Text style={styles.textetitre}>food for you</Text>
                     </View>
 
@@ -338,7 +391,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         marginTop: 20,
-    
+
     },
     card: {
         width: 150,
@@ -373,7 +426,7 @@ const styles = StyleSheet.create({
     },
     cardtitre: {
         fontWeight: '600',
-        fontSize: 17 ,
+        fontSize: 17,
         textAlign: 'center'
     },
     texte: {

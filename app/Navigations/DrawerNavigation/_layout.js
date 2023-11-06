@@ -1,6 +1,7 @@
 // import { useNavigation } from 'expo-router';
 import { Drawer } from 'expo-router/drawer';
 import { Image } from 'react-native';
+import { View, Pressable, Text } from 'react-native';
 
 export default function Layout() {
     // const navigation = useNavigation();
@@ -22,7 +23,7 @@ export default function Layout() {
                 },
                 headerTitleAlign: 'center',
                 // headerTintColor: '#f5f5f8'
-                headerStyle:{
+                headerStyle: {
                     backgroundColor: '#f2f2f2',
                 }
             }}
@@ -136,6 +137,31 @@ export default function Layout() {
                     ),
                 }}
             />
+            {/* <View>
+                <Pressable style={{
+                    display: 'flex',
+                    justifyContent: "center",
+                    alignItems: "center",
+                    flexDirection: 'row',
+                    // backgroundColor: '#FA4A0C',
+                    // borderRadius: 50,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    // width: 125,
+                    // height: 50,
+                    marginTop: -1000
+                }}>
+                    <Text style={{
+                        color: 'white',
+                        fontSize: 17,
+                        fontWeight: '600'
+                    }}>Sign-up</Text>
+                    <Image
+                        source={require('../../../assets/icons/logout.png')}
+                        style={{ width: 22, height: 22, tintColor: 'white' }}
+                    />
+                </Pressable>
+            </View> */}
         </Drawer>
     );
 }
